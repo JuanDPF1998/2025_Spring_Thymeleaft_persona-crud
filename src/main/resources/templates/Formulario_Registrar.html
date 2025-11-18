@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>¿Registrar un producto nuevo?</h2>
+    </div>
+    <form th:action="@{/productos}" th:object="${producto}" method="post">
+        <div class="form-group">
+            <label class="form-label">Nombre :</label>
+            <input type="text" class="form-control" th:field="*{nombre}" placeholder="Ingrese el nombre del producto">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Descripcion :</label>
+            <input type="text" class="form-control" th:field="*{descripcion}" placeholder="Ingresa una descripcion">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Stock disponible :</label>
+            <input type="number" class="form-control" th:field="*{existencia}">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Precio :</label>
+            <input type="number" class="form-control" th:field="*{precio}" placeholder="Digite el precio">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Tienda disponible :</label>
+            <section>
+                <select class="form-control" th:field="*{Tienda}">
+                    <option value="">!Selecciona una tienda¡</option>
+                    <option value="Bodega Aurrera">Bdega Aurrera</option>
+                    <option value="Soriana">Soriana</option>
+                    <option value="Walmart">Walmart</option>
+                    <option value="The home depot">The Home Depot</option>
+                </select>
+                <div class="box-footer">
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+</body>
+</html>
