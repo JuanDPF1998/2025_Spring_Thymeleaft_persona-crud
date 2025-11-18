@@ -5,10 +5,7 @@ import com.productosThymeleaft.servicio.productosServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping
@@ -34,6 +31,11 @@ public class productosControlador {
     public String registrarProductoEnBaseDeDatos(@ModelAttribute Productos producto){
         servicio.agregarProducto(producto);
         return "redirect:/productos";
+    }
+    @GetMapping("/productos/editar/{id}")
+    public String mostrarFormularioEditarPorId(@PathVariable Long id, Model model){
+        model.addAttribute("producto", servicio.obtenerProductoId(id));
+        return "Formulario_Editar";
     }
 
 }

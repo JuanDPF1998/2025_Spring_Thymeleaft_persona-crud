@@ -7,4 +7,5 @@ import java.util.List;
 public interface productosServicio {
     public List<Productos> listarTodos();
     public Productos agregarProducto(Productos productos);
+    public Productos obtenerProductoId(Long id);
 }

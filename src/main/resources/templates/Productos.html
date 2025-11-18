@@ -28,6 +28,7 @@
                 <th>Existencia : </th>
                 <th>Precio : </th>
                 <th>Tienda : </th>
+                <th>Acciones :</th>
             </tr>
             </thead>
             <tbody>
@@ -38,6 +39,9 @@
                 <td th:text="${producto.existencia}"></td>
                 <td th:text="${producto.precio}"></td>
                 <td th:text="${producto.tienda}"></td>
+                <td>
+                    <a th:href="@{/productos/editar/{id}(id=${producto.id})}" class="btn btn-warning">Editar</a>
+                </td>
             </tr>
             </tbody>
         </table>
