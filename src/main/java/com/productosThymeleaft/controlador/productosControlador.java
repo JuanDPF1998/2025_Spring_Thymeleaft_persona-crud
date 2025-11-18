@@ -31,7 +31,7 @@ public class productosControlador {
     }
     //Accion registrar producto en la base de datos
     @PostMapping("/productos")
-    public String registrarProducto(@ModelAttribute Productos producto){
+    public String registrarProductoEnBaseDeDatos(@ModelAttribute Productos producto){
         servicio.agregarProducto(producto);
         return "redirect:/productos";
     }
