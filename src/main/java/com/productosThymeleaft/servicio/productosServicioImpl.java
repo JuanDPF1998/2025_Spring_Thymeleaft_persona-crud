@@ -26,4 +26,9 @@ public class productosServicioImpl implements  productosServicio{
     public Productos obtenerProductoId(Long id) {
         return repositorio.findById(id).orElse(null);
     }
+
+    @Override
+    public Productos actualizarPorId(Productos productos) {
+        return repositorio.save(productos);
+    }
 }

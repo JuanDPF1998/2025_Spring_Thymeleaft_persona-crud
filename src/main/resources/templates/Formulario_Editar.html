@@ -13,7 +13,7 @@
     <div class="row">
         <h2>¿Editar registro?</h2>
     </div>
-    <form th:action="@{/productos/editar/{id}(id=${producto.id})}" th:object="${producto}">
+    <form th:action="@{/productos/{id}(id=${producto.id})}" th:object="${producto}" method="post">
         <div class="form-group">
             <label class="form-label">Nombre :</label>
             <input type="text" class="form-control" th:field="*{nombre}" placeholder="Ingrese el nombre del producto">
@@ -35,13 +35,13 @@
             <section>
                 <select class="form-control" th:field="*{Tienda}">
                     <option value="">!Selecciona una tienda¡</option>
-                    <option value="Bodega Aurrera">Bdega Aurrera</option>
+                    <option value="Bodega Aurrera">Bodega Aurrera</option>
                     <option value="Soriana">Soriana</option>
                     <option value="Walmart">Walmart</option>
                     <option value="The home depot">The Home Depot</option>
                 </select>
                 <div class="box-footer">
-                    <button class="btn btn-success" type="submit">Editar</button>
+                    <button class="btn btn-success" type="submit">Guardar</button>
                 </div>
             </section>
         </div>

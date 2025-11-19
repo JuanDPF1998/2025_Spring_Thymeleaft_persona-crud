@@ -37,5 +37,17 @@ public class productosControlador {
         model.addAttribute("producto", servicio.obtenerProductoId(id));
         return "Formulario_Editar";
     }
+    @PostMapping("/productos/{id}")
+    public String actualizarProductos(@PathVariable Long id, @ModelAttribute("producto") Productos producto){
+        Productos productoExiste = servicio.obtenerProductoId(id);
+        productoExiste.setId(id);
+        productoExiste.setNombre(producto.getNombre());
+        productoExiste.setDescripcion(producto.getDescripcion());
+        productoExiste.setExistencia(producto.getExistencia());
+        productoExiste.setPrecio(producto.getPrecio());
+        productoExiste.setTienda(producto.getTienda());
 
+        servicio.actualizarPorId(productoExiste);
+        return "redirect:/productos";
+    }
 }
