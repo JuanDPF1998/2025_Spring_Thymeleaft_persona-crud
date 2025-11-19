@@ -32,12 +32,12 @@ public class productosControlador {
         servicio.agregarProducto(producto);
         return "redirect:/productos";
     }
-    @GetMapping("/productos/editar/{id}")
+    @GetMapping("/productos/ver/{id}")
     public String mostrarFormularioEditarPorId(@PathVariable Long id, Model model){
         model.addAttribute("producto", servicio.obtenerProductoId(id));
         return "Formulario_Editar";
     }
-    @PostMapping("/productos/{id}")
+    @PostMapping("/productos/actualizar/{id}")
     public String actualizarProductos(@PathVariable Long id, @ModelAttribute("producto") Productos producto){
         Productos productoExiste = servicio.obtenerProductoId(id);
         productoExiste.setId(id);
@@ -48,6 +48,11 @@ public class productosControlador {
         productoExiste.setTienda(producto.getTienda());
 
         servicio.actualizarPorId(productoExiste);
+        return "redirect:/productos";
+    }
+    @GetMapping("/productos/eliminar/{id}")
+    public String eliminarProducto(@PathVariable Long id){
+        servicio.eliminarPorId(id);
         return "redirect:/productos";
     }
 }

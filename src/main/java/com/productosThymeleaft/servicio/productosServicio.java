@@ -9,4 +9,5 @@ public interface productosServicio {
     public Productos agregarProducto(Productos productos);
     public Productos obtenerProductoId(Long id);
     public Productos actualizarPorId(Productos productos);
+    public void eliminarPorId(Long id);
 }
